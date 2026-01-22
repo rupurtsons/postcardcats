@@ -1,0 +1,290 @@
+* {
+    box-sizing: border-box;
+    font-family: "Rubik Gemstones", system-ui;
+    font-weight: 100px;
+    font-style: normal;
+    text-align: center;
+}
+
+body {
+    margin:10;
+    background-color: rgb(255, 206, 206);
+    transition: background-color .5s;
+}
+
+h2 {
+    font-family:"Rock 3D", system-ui;
+    position: sticky;
+    top: 200px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 150px;
+    text-align: center;
+    z-index: -1;
+}
+
+.center {
+    position: fixed;
+    left: 250px;
+    top: 100px;
+    z-index: 99999;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.panel {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    width: 50%; 
+}
+
+.left-panel {
+    background-color: #e0f7fa;
+    border-right: 1px solid #ccc;
+}
+
+.right-panel {
+    background-color: #ffecb3;
+}
+
+button {
+    padding: 10px;
+    border: 1px solid;
+    cursor: pointer;
+    background-color: rgb(255, 158, 158);
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: rgb(148, 100, 79);
+    
+}
+button:active {
+    background-color: rgb(255, 224, 205);
+}
+
+.transcription-result {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 200px;
+    white-space: pre-wrap; /* Preserves line breaks */
+}
+
+.scalloped-box {
+  --r: 25px; /* radius of circles */
+  height: 200px;
+  width: 660px;
+  padding: calc(1.5*var(--r));
+  background: #ffa9db;
+  mask: 
+    linear-gradient(#000 0 0) no-repeat
+     50%/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)), 
+    radial-gradient(farthest-side,#000 97%,#0000) 
+     0 0/calc(2*var(--r)) calc(2*var(--r)) round;
+     z-index: -9000;
+}
+.scalloped-boxtwo {
+  --r: 25px; /* radius of circles */
+  height: 200px;
+  width: 660px;
+  padding: calc(1.5*var(--r));
+  background: #fdffc2;
+  mask: 
+    linear-gradient(#000 0 0) no-repeat
+     50%/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)), 
+    radial-gradient(farthest-side,#000 97%,#0000) 
+     0 0/calc(2*var(--r)) calc(2*var(--r)) round;
+     z-index: -9000;
+}
+
+.stamp {
+  --r: 20px; /* control the radius */
+
+  height: 800px;
+  width: auto;
+  padding: var(--r);
+  background: #c4c6ff;
+  mask: 
+    radial-gradient(50% 50%,#0000 66%,#000 67%) round 
+     var(--r) var(--r)/calc(2*var(--r)) calc(2*var(--r)), 
+    conic-gradient(#000 0 0) content-box;
+    z-index: -9999;
+}
+
+.stamptwo {
+  --r: 20px; /* control the radius */
+
+  height: 800px;
+  width: auto;
+  padding: var(--r);
+  background: #c4ffc9;
+  mask: 
+    radial-gradient(50% 50%,#0000 66%,#000 67%) round 
+     var(--r) var(--r)/calc(2*var(--r)) calc(2*var(--r)), 
+    conic-gradient(#000 0 0) content-box;
+    z-index: -99999;
+}
+
+/* HTML: <div class="heart"></div> */
+.heart {
+  height: 250px; /* adjust to control the size */
+  aspect-ratio: 1;
+  --_m: radial-gradient(#000 69%,#0000 70%) 84.5%/50%;
+  -webkit-mask-box-image: var(--_m);
+             mask-border: var(--_m);
+  clip-path: polygon(-41% 0,50% 91%, 141% 0);
+  background: #cc333f;
+}
+
+.overlay{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+
+.overlay-title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  pointer-events: none;
+}
+
+
+.random-word{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: system-ui, sans-serif;  
+  font-size: 12px;                  
+  text-align: left;                   
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+
+/* fallback until better support for mask-border */
+@supports not (-webkit-mask-box-image: var(--_m)) { 
+  .heart {
+    mask:
+     radial-gradient(at 70% 31%,#000 29%,#0000 30%),
+     radial-gradient(at 30% 31%,#000 29%,#0000 30%),
+     conic-gradient(#000 0 0) bottom/100% 50% no-repeat;
+  }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/* *{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10;
+    background-color: rgb(255, 183, 183);
+    transition: background-color 0.5s;
+}
+
+body.dark {
+    background-color: maroon;
+}
+
+body.glow {
+   background-color: pink; 
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: plum;
+    border: 1px solid rgb(128, 0, 85);
+    animation: spin 10s infinite linear;
+    animation-play-state: paused;
+    transition: background-color 1s box shadow 1s;
+}
+
+.box.dark {
+    background-color: rgb(43, 0, 0);
+}
+
+.box.glow {
+     background-color: rgb(255, 200, 248);
+    box-shadow: 0 0 30px 15px deeppink;
+}
+.box.spin {
+    animation-play-state: running;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+button {
+    padding: 10px;
+    border: 1px solid;
+    cursor: pointer;
+    background-color: rgb(255, 158, 158);
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: rgb(148, 100, 79);
+    
+}
+button:active {
+    background-color: rgb(255, 224, 205);
+}
+
+.draggable {
+    cursor: grab;
+}
+
+.cat {
+    width: 200px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+}
+
+
+/* when doing animations u gotta write @keyframe before */
+/* @keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} */
